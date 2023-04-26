@@ -1,0 +1,21 @@
+---
+# Playbook to update Linux servers running Debian and Arch Linux distributions
+- name: Update Linux servers
+  hosts: all
+  become: true # Run tasks with root privileges
+
+  tasks:
+    # Task to update Debian-based Linux distributions
+    - name: Update Debian-based Linux distributions
+      when: "ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 3600
+
+    # Task to update Arch Linux
+    - name: Update Arch Linux
+      when: "ansible_distribution == 'Arch Linux'"
+      community.general.pacman:
+        update_cache: yes
+        upgrade: yes
