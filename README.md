@@ -9,3 +9,10 @@ Run this playbook asking for sudo password
 ```bash
 ansible-playbook -i ./inventory.yml ./update-servers.yml --ask-become-pass
 ```
+
+## Supported Linux Distribution Families
+
+* Arch
+* Debian
+* RedHat
+* openSUSE

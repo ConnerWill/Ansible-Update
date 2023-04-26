@@ -1,5 +1,5 @@
 ---
-# Playbook to update Linux servers running Debian and Arch Linux distributions
+# Playbook to update Linux servers running various distributions
 - name: Update Linux servers
   hosts: all
   become: true # Run tasks with root privileges
@@ -7,15 +7,38 @@
   tasks:
     # Task to update Debian-based Linux distributions
     - name: Update Debian-based Linux distributions
-      when: "ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
-      apt:
-        upgrade: yes
-        update_cache: yes
+      when: ansible_distribution in ['Debian', 'Ubuntu', 'LinuxMint']
+      ansible.builtin.apt:
+        upgrade: true
+        update_cache: true
         cache_valid_time: 3600
 
     # Task to update Arch Linux
     - name: Update Arch Linux
-      when: "ansible_distribution == 'Arch Linux'"
+      when: ansible_distribution == 'Arch Linux'
       community.general.pacman:
-        update_cache: yes
-        upgrade: yes
+        update_cache: true
+        upgrade: true
+
+    # Task to update CentOS-based Linux distributions
+    - name: Update CentOS-based Linux distributions
+      when: ansible_distribution in ['CentOS', 'RedHat', 'OracleLinux', 'Amazon']
+      ansible.builtin.yum:
+        name: '*'
+        state: latest
+        update_only: true # Updates but does not install additional packages.
+
+    # Task to update Fedora-based Linux distributions
+    - name: Update Fedora-based Linux distributions
+      when: ansible_distribution == 'Fedora'
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+        update_only: true # Updates but does not install additional packages.
+
+    # Task to update openSUSE-based Linux distributions
+    - name: Update openSUSE-based Linux distributions
+      when: ansible_distribution in ['openSUSE Leap', 'SUSE Linux Enterprise Server']
+      community.general.zypper:
+        name: '*'
+        state: latest
