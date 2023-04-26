@@ -1,0 +1,14 @@
+all:
+  hosts:
+    server1:
+      ansible_host: 192.168.2.1
+      ansible_user: username
+      ansible_ssh_private_key_file: /path/to/ssh/key
+    server2:
+      ansible_host: 192.168.2.2
+      ansible_user: username
+      ansible_ssh_private_key_file: /path/to/ssh/key
+    server3:
+      ansible_host: 192.168.2.3
+      ansible_user: username
+      ansible_ssh_private_key_file: /path/to/ssh/key
