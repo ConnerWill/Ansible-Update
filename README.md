@@ -16,6 +16,31 @@ Ansible Playbook To Update Linux Servers
 ansible-playbook -i ./inventory.yml ./main.yml --ask-become-pass
 ```
 
+## Inventory
+
+**Example inventory file**
+
+```yml
+all:
+  hosts:
+    server1:
+      ansible_host: 192.168.2.1
+      ansible_user: username
+      ansible_ssh_private_key_file: ~/.ssh/ssh_key
+    server2:
+      ansible_host: 192.168.2.2
+      ansible_user: username
+      ansible_ssh_private_key_file: ~/.ssh/ssh_key
+    server3:
+      ansible_host: example.com
+      ansible_user: username
+      ansible_ssh_private_key_file: ~/.ssh/ssh_key
+    localhost:
+      ansible_host: localhost
+      ansible_user: username
+      ansible_ssh_private_key_file: ~/.ssh/ssh_key
+```
+
 ## Supported Linux Distribution Families
 
 * Arch
