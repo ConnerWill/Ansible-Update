@@ -13,7 +13,7 @@ Ansible Playbook To Update Linux Servers
 **Run this playbook manually**
 
 ```bash
-ansible-playbook -i ./inventory.yml ./update-servers.yml --ask-become-pass
+ansible-playbook -i ./inventory.yml ./main.yml --ask-become-pass
 ```
 
 ## Supported Linux Distribution Families
