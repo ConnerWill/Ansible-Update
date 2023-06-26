@@ -14,7 +14,7 @@
         cache_valid_time: 3600
 
     # Task to update Arch Linux
-    - name: Update Arch Linux
+    - name: Update Arch-based Linux distributions
       when: ansible_distribution == 'Arch Linux'
       community.general.pacman:
         update_cache: true
