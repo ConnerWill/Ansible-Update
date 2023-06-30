@@ -1,5 +1,7 @@
 # Ansible-Update
 
+[![ansible-lint](https://github.com/ConnerWill/Ansible-Update/actions/workflows/ansible-lint.yml/badge.svg?event=push)](https://github.com/ConnerWill/Ansible-Update/actions/workflows/ansible-lint.yml)
+
 Ansible Playbook To Update Linux Servers
 
 ## Usage
