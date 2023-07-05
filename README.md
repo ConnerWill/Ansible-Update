@@ -9,7 +9,7 @@ Ansible Playbook To Update Linux Servers
 **Run this playbook using `run.sh` script**
 
 ```bash
-./run.sh
+./scripts/run.sh
 ```
 
 **Run this playbook manually**

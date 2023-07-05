@@ -4,10 +4,10 @@
 ## Definitions
 
 # Define playbook path
-playbook_path="./main.yml"
+playbook_path="../main.yml"
 
 # Define inventory path
-inventory_path="./inventory.yml"
+inventory_path="../inventory.yml"
 
 color_red='\x1B[0;38;5;196m'
 color_green='\x1B[0;38;5;46m'
@@ -15,7 +15,6 @@ color_yellow='\x1B[0;38;5;226m'
 color_reset='\x1B[0m'
 
 
-#
 ## Functions
 
 # Function to check if Ansible is installed
