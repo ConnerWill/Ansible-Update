@@ -9,8 +9,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install ansible-lint and dependencies
-        run: |
-          pip install ansible ansible-lint
+        run: pip install ansible ansible-lint
 
       - name: Install required Ansible collection
         run: ansible-galaxy collection install community.general
