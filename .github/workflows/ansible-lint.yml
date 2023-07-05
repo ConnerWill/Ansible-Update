@@ -1,5 +1,13 @@
 name: ansible-lint
-on: [push, pull_request]
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   build:
     name: Ansible Lint
@@ -16,3 +24,6 @@ jobs:
 
       - name: Run ansible-lint
         run: ansible-lint main.yml
+
+      - name: Display test results
+        run: echo "ansible-lint check passed"
