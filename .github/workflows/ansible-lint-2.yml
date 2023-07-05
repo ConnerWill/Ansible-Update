@@ -12,7 +12,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          key: ${{ runner.os }}-pip-cache
 
       - name: Install ansible-lint and dependencies
         run: |
@@ -20,7 +20,9 @@ jobs:
           pip install ansible ansible-lint
 
       - name: Install required Ansible collection
-        run: ansible-galaxy collection install community.general
+        run: |
+          ansible-galaxy collection install community.general
 
       - name: Run ansible-lint
-        run: ansible-lint main.yml
+        run: |
+          ansible-lint main.yml
