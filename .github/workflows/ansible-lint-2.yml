@@ -16,4 +16,4 @@ jobs:
         run: ansible-galaxy collection install community.general
 
       - name: Run ansible-lint
-        run: ansible-lint playbook.yml
+        run: ansible-lint main.yml
