@@ -31,7 +31,7 @@ function check_and_create_file() {
   local inventory_path="${1}"
   if [[ ! -f "${inventory_path}" ]]; then
     printf "${color_red}Inventory file does not exist.${color_reset} ${color_yellow}Creating it...${color_reset}\n"
-    cp ./EXAMPLE-inventory.yml "${inventory_path}"
+    cp ../EXAMPLE-inventory.yml "${inventory_path}"
     printf "${color_yellow}Please edit inventory file:\t${color_green}%s${color_reset}\n" "${inventory_path}"
     exit 1
   fi
