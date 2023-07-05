@@ -1,10 +1,19 @@
-# .github/workflows/ansible-lint.yml
-name: ansible-lint
+name: ansible-lint-2
 on: [push, pull_request]
 jobs:
   build:
-    name: Ansible Lint # Naming the build is important to use it as a status check
+    name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install ansible-lint and dependencies
+        run: |
+          pip install ansible ansible-lint
+
+      - name: Install required Ansible collection
+        run: ansible-galaxy collection install community.general
+
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@main # or version tag instead of 'main'
+        run: ansible-lint main.yml
