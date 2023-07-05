@@ -1,0 +1,17 @@
+stages:
+  - build
+
+ansible-lint:
+  stage: build
+  image: python:3.9
+
+  before_script:
+    - apt-get update && apt-get install -y ansible
+    - pip install ansible-lint
+    - ansible-galaxy collection install community.general
+
+  script:
+    - ansible-lint main.yml
+
+  after_script:
+    - echo "ansible-lint check passed"
